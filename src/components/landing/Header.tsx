@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 const navItems = [
   { label: "Sobre", href: "#sobre" },
   { label: "Governança", href: "#governanca" },
   { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Atuação", href: "#atuacao" },
+  { label: "Ferramentas", href: "#ferramentas" },
   { label: "Contato", href: "#contato" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { dark, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,7 +52,14 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggle}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              aria-label="Alternar tema"
+            >
+              {dark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <a
               href="#contato"
               className="inline-flex items-center justify-center h-10 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
@@ -59,12 +68,21 @@ const Header = () => {
             </a>
           </div>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggle}
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Alternar tema"
+            >
+              {dark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 text-foreground"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
