@@ -5,6 +5,7 @@ import ValueSection from "@/components/landing/ValueSection";
 import Differentials from "@/components/landing/Differentials";
 import Application from "@/components/landing/Application";
 import Benefits from "@/components/landing/Benefits";
+import InteractiveTools from "@/components/landing/InteractiveTools";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <Differentials />
       <Application />
       <Benefits />
+      <InteractiveTools />
       <CTASection />
       <Footer />
     </div>
