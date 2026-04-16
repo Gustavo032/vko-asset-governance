@@ -24,7 +24,7 @@ const CTASection = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/30" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
