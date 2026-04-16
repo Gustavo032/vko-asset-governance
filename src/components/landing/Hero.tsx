@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-mansion.jpg";
 
 const metrics = [
@@ -11,10 +12,18 @@ const metrics = [
 ];
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
+      {/* Background image with parallax */}
+      <div className="absolute inset-0 -top-20 -bottom-40 will-change-transform" style={{ transform: `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0003})` }}>
         <img
           src={heroImg}
           alt="Mansão de alto padrão com jardim e piscina"
@@ -22,6 +31,8 @@ const Hero = () => {
           width={1280}
           height={720}
         />
+      </div>
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/55 to-background/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
       </div>
