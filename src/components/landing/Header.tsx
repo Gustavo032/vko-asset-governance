@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, ExternalLink } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 
 const navItems = [
   { label: "Sobre", href: "#sobre" },
   { label: "Governança", href: "#governanca" },
-  { label: "Diferenciais", href: "#diferenciais" },
   { label: "Ferramentas", href: "#ferramentas" },
   { label: "Contato", href: "#contato" },
 ];
@@ -61,10 +60,19 @@ const Header = () => {
               {dark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <a
+              href="https://sistema.vkosolution.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 h-10 px-5 rounded-lg border text-sm font-medium text-foreground hover:bg-accent transition-colors"
+            >
+              Acessar Sistema
+              <ExternalLink size={14} />
+            </a>
+            <a
               href="#contato"
               className="inline-flex items-center justify-center h-10 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
             >
-              Fale com um especialista
+              Fale conosco
             </a>
           </div>
 
@@ -100,11 +108,20 @@ const Header = () => {
               </a>
             ))}
             <a
+              href="https://sistema.vkosolution.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Acessar Sistema
+              <ExternalLink size={14} />
+            </a>
+            <a
               href="#contato"
               onClick={() => setMobileOpen(false)}
               className="inline-flex items-center justify-center h-10 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-medium w-full"
             >
-              Fale com um especialista
+              Fale conosco
             </a>
           </div>
         </div>
