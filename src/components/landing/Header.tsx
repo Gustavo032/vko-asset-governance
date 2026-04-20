@@ -24,17 +24,17 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
+          ? "glass-surface border-b shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm tracking-tight">VKO</span>
             </div>
-            <span className="font-display font-semibold text-lg tracking-tight text-foreground">
+            <span className="font-display font-semibold text-base sm:text-lg tracking-tight text-foreground max-[360px]:hidden">
               VKO Solution
             </span>
           </a>
@@ -95,8 +95,8 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-b">
-          <div className="px-6 py-6 space-y-4">
+        <div className="md:hidden glass-surface border-b">
+          <div className="px-4 sm:px-6 py-6 space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.href}

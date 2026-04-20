@@ -1,4 +1,5 @@
 import { XCircle, CheckCircle } from "lucide-react";
+import ScrollReveal from "@/components/landing/ScrollReveal";
 
 const problems = [
   "Ativos sem histórico consolidado",
@@ -21,8 +22,8 @@ const solutions = [
 const ValueSection = () => {
   return (
     <section id="sobre" className="py-24 lg:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-16 lg:mb-20" variant="fade-in">
           <p className="text-xs font-semibold tracking-widest uppercase text-secondary mb-4">Por que importa</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6">
             O impacto da ausência de governança
@@ -30,11 +31,11 @@ const ValueSection = () => {
           <p className="text-muted-foreground text-lg leading-relaxed">
             Sem uma abordagem estruturada, a operação se torna reativa, fragmentada e dependente de esforços individuais. Com governança, cada decisão ganha contexto, cada ativo ganha visibilidade.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Problems */}
-          <div className="p-8 lg:p-10 rounded-2xl border bg-background">
+          <ScrollReveal className="p-8 lg:p-10 rounded-2xl glass-surface glass-tint">
             <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-8">Sem governança</p>
             <div className="space-y-5">
               {problems.map((item) => (
@@ -44,10 +45,10 @@ const ValueSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Solutions */}
-          <div className="p-8 lg:p-10 rounded-2xl border bg-background border-primary/20">
+          <ScrollReveal className="p-8 lg:p-10 rounded-2xl glass-surface-strong glass-tint border-primary/20" delayMs={100} variant="zoom-in">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-8">Com governança VKO</p>
             <div className="space-y-5">
               {solutions.map((item) => (
@@ -57,7 +58,7 @@ const ValueSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
