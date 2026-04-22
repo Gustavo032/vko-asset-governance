@@ -4,8 +4,8 @@ import { useTheme } from "@/hooks/use-theme";
 
 const navItems = [
   { label: "Sobre", href: "#sobre" },
-  { label: "Governança", href: "#governanca" },
-  { label: "Ferramentas", href: "#ferramentas" },
+  { label: "GTA", href: "#governanca" },
+  { label: "Simulador", href: "#ferramentas" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -34,8 +34,8 @@ const Header = () => {
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm tracking-tight">VKO</span>
             </div>
-            <span className="font-display font-semibold text-base sm:text-lg tracking-tight text-foreground max-[360px]:hidden">
-              VKO Solution
+            <span className="font-display font-semibold text-sm sm:text-base tracking-tight text-foreground max-[360px]:hidden">
+              Governança Técnica de Ativos
             </span>
           </a>
 

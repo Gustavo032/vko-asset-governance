@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Iansui&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,8 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv11", "ss01";
+    font-size: 17px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -104,6 +108,12 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-iansui {
+    font-family: "Iansui", cursive;
+    font-weight: 400;
+    font-style: normal;
   }
 
   .glass-surface {

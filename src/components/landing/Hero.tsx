@@ -14,34 +14,44 @@ interface Metric {
 
 const metrics: Metric[] = [
   {
-    label: "Ativos monitorados",
-    target: 2400,
+    label: "Anos de experiência em governança técnica de ativos",
+    target: 8,
     format: (value) => `${Math.round(value).toLocaleString("pt-BR")}+`,
   },
   {
-    label: "m² sob gestão",
-    target: 850000,
-    format: (value) => `${Math.round(value / 1000)}k`,
-  },
-  {
     label: "Estados atendidos",
-    target: 12,
+    target: 7,
     format: (value) => `${Math.round(value)}`,
   },
   {
-    label: "Satisfação dos clientes",
-    target: 98,
+    label: "Empreendimentos atendidos",
+    target: 45,
+    format: (value) => `${Math.round(value).toLocaleString("pt-BR")}+`,
+  },
+  {
+    label: "Chamados atendidos em 2025",
+    target: 1200,
+    format: (value) => `${Math.round(value).toLocaleString("pt-BR")}+`,
+  },
+  {
+    label: "m² de área técnica gerenciada",
+    target: 320000,
+    format: (value) => `${Math.round(value).toLocaleString("pt-BR")}`,
+  },
+  {
+    label: "Sistemas técnicos cadastrados e monitorados",
+    target: 4000,
+    format: (value) => `${Math.round(value).toLocaleString("pt-BR")}+`,
+  },
+  {
+    label: "Ativos com histórico completo de manutenção e conformidade",
+    target: 90,
     format: (value) => `${Math.round(value)}%`,
   },
   {
-    label: "Imóveis de alto padrão",
-    target: 150,
-    format: (value) => `${Math.round(value)}+`,
-  },
-  {
-    label: "Patrimônio sob governança",
-    target: 3.2,
-    format: (value) => `R$${value.toFixed(1)}B`,
+    label: "Vistorias técnicas realizadas",
+    target: 1200,
+    format: (value) => `${Math.round(value).toLocaleString("pt-BR")}+`,
   },
 ];
 
@@ -106,7 +116,7 @@ const MetricCard = ({
       style={{ transitionDelay: `${delayMs}ms` }}
     >
       <p className="text-2xl lg:text-3xl font-bold text-primary">{metric.format(displayValue)}</p>
-      <p className="text-xs text-muted-foreground mt-1 leading-tight">{metric.label}</p>
+      <p className="text-sm text-muted-foreground mt-1 leading-tight">{metric.label}</p>
     </div>
   );
 };
@@ -187,21 +197,21 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 lg:py-28">
         <div className="max-w-2xl space-y-8">
           <ScrollReveal variant="fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-chip text-primary text-xs font-semibold tracking-wide uppercase">
-              Governança de Ativos de Alto Padrão
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-chip text-primary text-sm font-semibold tracking-wide uppercase font-iansui">
+              GTA — Método VKO para Ativos
             </div>
           </ScrollReveal>
 
           <ScrollReveal delayMs={80}>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight text-foreground text-balance">
-              Seu patrimônio merece{" "}
-              <span className="text-primary">gestão inteligente</span>
+              Para garantir eficiência e valorizar{" "}
+              <span className="text-primary">o seu patrimônio</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delayMs={140}>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A VKO Solution cuida dos seus ativos com estrutura, controle e inteligência operacional — para que você tenha visibilidade total e tranquilidade sobre seu patrimônio.
+              Estruturamos do zero o modelo GTA no seu ativo: inventário validado, histórico rastreável e critérios objetivos para priorizar investimentos, reduzir urgências e decidir com segurança.
             </p>
           </ScrollReveal>
 
@@ -218,14 +228,14 @@ const Hero = () => {
                 href="#governanca"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 h-12 px-6 sm:px-8 rounded-lg border text-foreground font-medium hover:bg-accent transition-colors bg-background/60 backdrop-blur-sm"
               >
-                Conheça nossa abordagem
+                Entenda como funciona
               </a>
             </div>
           </ScrollReveal>
         </div>
 
         {/* Metrics grid */}
-        <div className="mt-16 lg:mt-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="mt-16 lg:mt-20 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {metrics.map((metric, index) => (
             <MetricCard
               key={metric.label}

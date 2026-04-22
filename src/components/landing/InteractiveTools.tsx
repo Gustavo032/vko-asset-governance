@@ -2,24 +2,40 @@ import { useState } from "react";
 import { Home } from "lucide-react";
 import ScrollReveal from "@/components/landing/ScrollReveal";
 
+const onlyDigits = (value: string) => value.replace(/\D/g, "");
+
+const formatIntegerPtBR = (value: string) => {
+  const digits = onlyDigits(value);
+  if (!digits) return "";
+  return Number(digits).toLocaleString("pt-BR");
+};
+
 function NumInput({
   label,
   value,
   onChange,
   placeholder,
+  inputMode = "numeric",
+  formatOnType,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  inputMode?: "text" | "numeric" | "decimal" | "tel" | "search" | "email" | "url";
+  formatOnType?: (value: string) => string;
 }) {
   return (
     <div className="space-y-1.5">
       <label className="text-sm font-medium text-foreground">{label}</label>
       <input
-        type="number"
+        type="text"
+        inputMode={inputMode}
         value={value}
-        onChange={(event) => onChange(event.target.value)}
+        onChange={(event) => {
+          const nextValue = formatOnType ? formatOnType(event.target.value) : event.target.value;
+          onChange(nextValue);
+        }}
         className="w-full h-10 rounded-lg border border-border bg-card px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
         placeholder={placeholder || "0"}
       />
@@ -43,8 +59,8 @@ function ComparativoTool() {
   const [valor, setValor] = useState("");
   const [anos, setAnos] = useState("10");
 
-  const anosNum = Number(anos) || 10;
-  const valorNum = Number(valor) || 0;
+  const anosNum = Number(onlyDigits(anos)) || 10;
+  const valorNum = Number(onlyDigits(valor)) || 0;
 
   const projecao =
     valorNum > 0
@@ -65,11 +81,12 @@ function ComparativoTool() {
         value={valor}
         onChange={setValor}
         placeholder="5.000.000"
+        formatOnType={formatIntegerPtBR}
       />
       <NumInput
         label="Horizonte de projeção (anos)"
         value={anos}
-        onChange={setAnos}
+        onChange={(nextValue) => setAnos(onlyDigits(nextValue))}
         placeholder="10"
       />
 
@@ -77,11 +94,11 @@ function ComparativoTool() {
         <div className="space-y-4 pt-2">
           <div className="space-y-3">
             {[
-              { label: "Com governança VKO", value: ultimoAno.comGov, color: "bg-primary" },
-              { label: "Sem governança", value: ultimoAno.semGov, color: "bg-muted-foreground/30" },
+              { label: "Com GTA (VKO)", value: ultimoAno.comGov, color: "bg-primary" },
+              { label: "Sem GTA", value: ultimoAno.semGov, color: "bg-muted-foreground/30" },
             ].map((item) => (
-              <div key={item.label} className="space-y-1">
-                <div className="flex justify-between text-xs">
+                <div key={item.label} className="space-y-1">
+                <div className="flex justify-between text-sm">
                   <span className="font-medium text-foreground">{item.label}</span>
                   <span className="text-muted-foreground">R$ {item.value.toLocaleString("pt-BR")}</span>
                 </div>
@@ -97,7 +114,7 @@ function ComparativoTool() {
 
           <Result
             positive
-            text={`Em ${anosNum} anos, a diferença pode chegar a R$ ${(ultimoAno.comGov - ultimoAno.semGov).toLocaleString("pt-BR")} a mais no seu patrimônio.`}
+            text={`Estimativa: em ${anosNum} anos, a diferença pode chegar a R$ ${(ultimoAno.comGov - ultimoAno.semGov).toLocaleString("pt-BR")} no valor do patrimônio.`}
           />
         </div>
       )}
@@ -110,14 +127,14 @@ const InteractiveTools = () => {
     <section id="ferramentas" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16" variant="fade-in">
-          <span className="inline-block px-3 py-1 rounded-full glass-chip text-secondary text-xs font-semibold tracking-wide uppercase mb-4">
-            Ferramenta Exclusiva
+          <span className="inline-block px-3 py-1 rounded-full glass-chip text-secondary text-sm font-semibold tracking-wide uppercase font-iansui mb-4">
+            Simulador rápido
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4 text-balance">
-            Compare seus cenarios patrimoniais
+            Compare cenários do seu patrimônio
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Simule a diferenca financeira entre uma gestao com governanca e uma operacao reativa.
+            Uma simulação simples para visualizar o impacto de operar com GTA versus manter uma rotina reativa.
           </p>
         </ScrollReveal>
 
@@ -127,9 +144,9 @@ const InteractiveTools = () => {
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <Home size={20} className="text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">Comparativo de Cenarios</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-1">Comparativo de cenários</h3>
               <p className="text-sm text-muted-foreground">
-                Veja o impacto acumulado da governanca no valor do seu patrimonio ao longo dos anos.
+                Veja o impacto acumulado (estimativo) no valor do seu patrimônio ao longo dos anos.
               </p>
             </div>
             <ComparativoTool />

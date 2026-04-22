@@ -30,7 +30,7 @@ const CTASection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // placeholder
-    alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+    alert("Mensagem enviada! Vamos te chamar em breve.");
     setForm({ nome: "", email: "", telefone: "", mensagem: "" });
   };
 
@@ -104,25 +104,25 @@ const CTASection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left text */}
           <ScrollReveal className="space-y-6">
-            <p className="text-xs font-semibold tracking-widest uppercase text-secondary">Contato</p>
+            <p className="text-sm font-semibold tracking-widest uppercase font-iansui text-secondary">Contato</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Vamos cuidar do seu patrimônio juntos
+              Vamos estruturar a GTA do seu patrimônio
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Preencha o formulário e um especialista da VKO entrará em contato para entender suas necessidades e apresentar a melhor solução de governança para seus ativos.
+              Preencha o formulário. A gente retorna com um diagnóstico inicial (inventário, criticidade e próximos passos) e uma proposta objetiva.
             </p>
             <div className="flex items-center gap-3 pt-4">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Send size={20} className="text-primary" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Resposta em até 24h</p>
-                <p className="text-xs text-muted-foreground">Nossa equipe retorna rapidamente</p>
+                <p className="text-sm font-semibold text-foreground">Retorno em até 24h úteis</p>
+                <p className="text-sm text-muted-foreground">No WhatsApp ou por e-mail</p>
               </div>
             </div>
 
             <div className="pt-2">
-              <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+              <p className="text-sm font-semibold tracking-widest uppercase font-iansui text-muted-foreground mb-3">
                 Canais diretos
               </p>
               <div className="flex flex-wrap gap-2.5">
@@ -190,7 +190,7 @@ const CTASection = () => {
                   value={form.mensagem}
                   onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                  placeholder="Conte-nos sobre seus ativos e necessidades..."
+                  placeholder="Ex.: tipo de ativo, quantidade, locais, desafios atuais..."
                 />
               </div>
               <button

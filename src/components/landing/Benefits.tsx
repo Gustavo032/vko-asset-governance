@@ -36,7 +36,7 @@ const Benefits = () => {
     <section className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
-          <p className="text-xs font-semibold tracking-widest uppercase text-secondary mb-4">Benefícios</p>
+          <p className="text-xs font-semibold tracking-widest uppercase font-iansui text-secondary mb-4">Benefícios</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6">
             O que sua operação ganha
           </h2>

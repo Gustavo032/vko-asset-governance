@@ -13,9 +13,9 @@ const Index = () => {
       <Header />
       <Hero />
       <ParallaxDivider variant="primary" />
-      <ValueSection />
-      <ParallaxDivider variant="secondary" />
       <Governance />
+      <ParallaxDivider variant="secondary" />
+      <ValueSection />
       <ParallaxDivider variant="primary" />
       <InteractiveTools />
       <ParallaxDivider variant="secondary" />

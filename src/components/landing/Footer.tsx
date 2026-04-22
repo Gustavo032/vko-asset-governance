@@ -32,16 +32,16 @@ const Footer = () => {
               <span className="font-display font-semibold text-foreground">VKO Solution</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Governança de ativos de alto padrão com estrutura, método e inteligência operacional.
+              GTA (Governança Técnica de Ativos) para alto padrão: método, rastreabilidade e decisão.
             </p>
-            <div className="space-y-1.5 text-xs text-muted-foreground break-words">
+            <div className="space-y-1.5 text-sm text-muted-foreground break-words">
               <p><span className="font-medium text-foreground">CNPJ:</span> 59.985.305/0001-42</p>
               <p className="leading-relaxed"><span className="font-medium text-foreground">Endereço:</span> Alameda Tocantins, 75 - Alphaville Industrial, Barueri - SP, 06455-020</p>
               <p>contato@vkosolution.com</p>
-              <p>+55 (11) 0000-0000</p>
+              <p>+55 (11) 97168-9500</p>
             </div>
             <div className="mt-5">
-              <p className="text-xs font-semibold tracking-widest uppercase text-foreground mb-3">Redes sociais</p>
+              <p className="text-sm font-semibold tracking-widest uppercase text-foreground mb-3">Redes sociais</p>
               <div className="flex flex-wrap gap-2">
                 {socialLinks.map((link) => (
                   <a
@@ -50,7 +50,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Acessar ${link.label} da VKO Solution`}
-                    className="inline-flex items-center gap-2 h-9 px-3 rounded-lg glass-chip text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                    className="inline-flex items-center gap-2 h-9 px-3 rounded-lg glass-chip text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                   >
                     <link.icon size={14} className="text-primary" />
                     <span>{link.label}</span>
@@ -62,11 +62,20 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-foreground mb-4">Navegação</p>
+            <p className="text-sm font-semibold tracking-widest uppercase text-foreground mb-4">Navegação</p>
             <div className="space-y-3">
-              {["Sobre", "Governança", "Ferramentas", "Contato"].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  {item}
+              {[
+                { label: "Sobre", href: "#sobre" },
+                { label: "GTA", href: "#governanca" },
+                { label: "Simulador", href: "#ferramentas" },
+                { label: "Contato", href: "#contato" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.label}
                 </a>
               ))}
             </div>
@@ -74,7 +83,7 @@ const Footer = () => {
 
           {/* Map */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-foreground mb-4">Localização</p>
+            <p className="text-sm font-semibold tracking-widest uppercase text-foreground mb-4">Localização</p>
             <div className="rounded-xl overflow-hidden border aspect-[4/3]">
               <iframe
                 src="https://www.google.com/maps?q=Alameda%20Tocantins%2C%2075%20-%20Alphaville%20Industrial%2C%20Barueri%20-%20SP%2C%2006455-020&output=embed"
@@ -91,12 +100,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-          <p className="text-xs text-muted-foreground text-balance">
+          <p className="text-sm text-muted-foreground text-balance">
             © {new Date().getFullYear()} VKO Solution. Todos os direitos reservados.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Termos de Uso</a>
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</a>
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Termos de Uso</a>
           </div>
         </div>
       </div>

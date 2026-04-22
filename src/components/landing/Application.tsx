@@ -14,7 +14,7 @@ const Application = () => {
     <section id="atuacao" className="py-24 lg:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
-          <p className="text-xs font-semibold tracking-widest uppercase text-secondary mb-4">Atuação</p>
+          <p className="text-xs font-semibold tracking-widest uppercase font-iansui text-secondary mb-4">Atuação</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6">
             Contextos de aplicação
           </h2>
